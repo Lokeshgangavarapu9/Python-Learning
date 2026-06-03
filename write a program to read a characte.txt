@@ -1,0 +1,22 @@
+// write a program to read a character
+//write a program to read a value which address and the datatype
+
+x=input("enter the value");
+print("the given value is",x);
+print(type(x));
+print(id(x));//memory allocate at RAM
+
+x=bool(input("enter the value");
+
+//complex type 
+x=input(input("enter the value");
+print(x);
+print(type(x));
+
+//for simplealy finding the type of the variable we use {{eval}}
+
+x=eval(input("enter the value"));
+print(x);
+print((type(x));
+
+output:-

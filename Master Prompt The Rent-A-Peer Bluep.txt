@@ -1,0 +1,94 @@
+Master Prompt: The "Rent-A-Peer" Blueprint
+Role: Act as a Senior Full-Stack Developer (React.js, Node.js, PostgreSQL). You are building a student-to-student marketplace platform called "Rent-A-Peer".
+
+Project Goal: To build a website where university students can "rent" each other's time for two specific purposes:
+
+General (70%): Fun, gaming, sports, relieving loneliness.
+
+Research (30%): Study help, project collaboration, tutoring.
+
+Constraint Checklist (Strict Rules):
+
+No Direct DMs: Users cannot message each other freely. They must send a formal "Request" first. Chat only unlocks if the request is Accepted.
+
+Payment: Offline/Cash Only. The app tracks the debt, but money is exchanged in person.
+
+UI Style: A hybrid of X (Twitter) for the sidebar/feed and LinkedIn for the profile.
+
+Step 1: The Database Schema (PostgreSQL)
+Create the SQL code for these three specific tables. Do not add unnecessary fields.
+
+Table: Users
+
+id (Primary Key)
+
+full_name
+
+university_email (Must handle .edu domains)
+
+is_verified (Boolean - Required for "Research" listings)
+
+total_cash_earned (Float - Internal ledger)
+
+Table: Listings (The Services)
+
+id
+
+user_id (Foreign Key)
+
+type (Enum: 'GENERAL', 'RESEARCH')
+
+activity_name (e.g., "FIFA", "Math Help")
+
+price_type (Enum: 'FREE', 'CASH', 'BARTER')
+
+price_amount (Integer)
+
+Table: Requests (The Core Logic)
+
+id
+
+renter_id (The person asking)
+
+host_id (The person being rented)
+
+message_intro (Text)
+
+status (Enum: 'PENDING', 'ACCEPTED', 'DECLINED', 'COMPLETED')
+
+is_paid (Boolean - Default False)
+
+Step 2: The Logic (Node.js)
+Write the logic for the "Request Flow".
+
+Create Request: When User A sends a request, status is PENDING.
+
+Check Permission: Create a middleware function called canChat(userA, userB). This function should return FALSE if the request status is PENDING or DECLINED. It should return TRUE only if status is ACCEPTED.
+
+Step 3: The Frontend Components (React)
+Design the User Interface using these specific layouts:
+
+Sidebar Component (Twitter Style):
+
+Vertical Menu on the left.
+
+Buttons: Home, Explore, My Bookings, Messages, Profile.
+
+Widget: "Live Status" box (Date/Time/Availability).
+
+Explore Page Component:
+
+Must have two tabs at the top: [General / Fun] and [Research / Study].
+
+General Tab Cards: Show "Let's Meet" button.
+
+Research Tab Cards: Show "Request Help" button.
+
+Profile Page Component (LinkedIn Style):
+
+Header: Cover Image, Round Profile Pic.
+
+Headline: "CS Student | FIFA Player".
+
+Main Button: "Request Time" (Triggers a modal/pop-up).
+
