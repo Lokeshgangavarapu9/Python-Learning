@@ -1,5 +1,5 @@
 import random
-k=input("choose heade or tail-->").strip().lower()
+k=input("choose head or tail-->").strip().lower()
 n=random.randint(0,1)
 
 if (n==1):
