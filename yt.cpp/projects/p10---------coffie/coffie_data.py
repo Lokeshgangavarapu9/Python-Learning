@@ -1,7 +1,7 @@
-import coffee_art
+import coffie_logo
 
 # Display the logo when the machine turns on
-print(coffee_art.logo)
+print(coffie_logo.logo)
 
 # The menu dictionary with updated 2026 cafe prices (in Rupees)
 menu = {

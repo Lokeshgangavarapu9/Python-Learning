@@ -1,4 +1,7 @@
 import random
+import coffie_logo
+
+print(coffie_logo.logo)
 
 # --- DATA CONFIGURATIONS ---
 MENU = {
